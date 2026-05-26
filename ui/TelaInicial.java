@@ -1,12 +1,13 @@
 package ui;
 
 import javax.swing.*;
-import jogo.Jogo;
-import jogo.Jogador;
 import jogo.Bot;
 import jogo.BotMinimax;
+import jogo.Jogador;
+import jogo.Jogo;
 import persistencia.SaveGame;
 
+@SuppressWarnings({"ResultOfObjectAllocationIgnored", "unused"})
 public class TelaInicial {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {

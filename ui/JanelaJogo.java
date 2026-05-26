@@ -1,22 +1,22 @@
 package ui;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import jogo.Jogo;
-import jogo.Jogador;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import jogo.Bot;
-import jogo.BotMinimax;
+import jogo.Jogador;
+import jogo.Jogo;
 import persistencia.SaveGame;
 
 public class JanelaJogo extends JFrame implements KeyListener {
-    private PainelTabuleiro painelTabuleiro;
+    private final PainelTabuleiro painelTabuleiro;
     private JLabel labelTurno;
     private JLabel labelInfo;
-    private Jogo jogo;
+    private final Jogo jogo;
 
+    @SuppressWarnings("LeakingThisInConstructor")
     public JanelaJogo(Jogo jogo) {
         this.jogo = jogo;
         setTitle("Xadrez dos Crias");
@@ -38,12 +38,12 @@ public class JanelaJogo extends JFrame implements KeyListener {
         painelPrincipal.add(painelLateral, BorderLayout.EAST);
 
         add(painelPrincipal);
-        addKeyListener(this);
 
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setFocusable(true);
+        addKeyListener(this);
     }
 
     private JPanel criarPainelLateral() {
@@ -111,7 +111,7 @@ public class JanelaJogo extends JFrame implements KeyListener {
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Thread.currentThread().interrupt();
                 }
                 painelTabuleiro.repaint();
             });

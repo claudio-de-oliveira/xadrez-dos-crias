@@ -1,15 +1,11 @@
 package ui;
 
-import javax.swing.*;
 import jogo.Jogo;
-import jogo.Jogador;
 
 public class InterfaceGrafica {
-    private JanelaJogo janelaJogo;
-    private Jogo jogo;
+    private final JanelaJogo janelaJogo;
 
     public InterfaceGrafica(Jogo jogo) {
-        this.jogo = jogo;
         janelaJogo = new JanelaJogo(jogo);
         janelaJogo.atualizar();
     }

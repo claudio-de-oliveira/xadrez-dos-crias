@@ -1,13 +1,12 @@
 package ui;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.*;
 import jogo.Jogo;
-import tabuleiro.Tabuleiro;
 import tabuleiro.Casa;
-import pecas.Peca;
+import tabuleiro.Tabuleiro;
 
 public class PainelTabuleiro extends JPanel {
     private static final int TAMANHO_BLOCO = 40;
@@ -15,8 +14,8 @@ public class PainelTabuleiro extends JPanel {
     private static final int PADDING = 20;
     private static final int ALTURA_INFO = 60;
 
-    private Jogo jogo;
-    private RendererPixelArt renderer;
+    private final Jogo jogo;
+    private final RendererPixelArt renderer;
 
     public PainelTabuleiro(Jogo jogo) {
         this.jogo = jogo;

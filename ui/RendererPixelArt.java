@@ -4,7 +4,7 @@ import java.awt.*;
 import pecas.*;
 
 public class RendererPixelArt {
-    private int tamanhoBloco;
+    private final int tamanhoBloco;
 
     public RendererPixelArt(int tamanhoBloco) {
         this.tamanhoBloco = tamanhoBloco;
@@ -21,24 +21,12 @@ public class RendererPixelArt {
         // Desenha cada tipo de peça
         String tipo = peca.getClass().getSimpleName();
         switch (tipo) {
-            case "Rei":
-                desenharRei(g, x + padding, y + padding, area, cor, borda);
-                break;
-            case "Rainha":
-                desenharRainha(g, x + padding, y + padding, area, cor, borda);
-                break;
-            case "Torre":
-                desenharTorre(g, x + padding, y + padding, area, cor, borda);
-                break;
-            case "Bispo":
-                desenharBispo(g, x + padding, y + padding, area, cor, borda);
-                break;
-            case "Cavalo":
-                desenharCavalo(g, x + padding, y + padding, area, cor, borda);
-                break;
-            case "Peao":
-                desenharPeao(g, x + padding, y + padding, area, cor, borda);
-                break;
+            case "Rei" -> desenharRei(g, x + padding, y + padding, area, cor, borda);
+            case "Rainha" -> desenharRainha(g, x + padding, y + padding, area, cor, borda);
+            case "Torre" -> desenharTorre(g, x + padding, y + padding, area, cor, borda);
+            case "Bispo" -> desenharBispo(g, x + padding, y + padding, area, cor, borda);
+            case "Cavalo" -> desenharCavalo(g, x + padding, y + padding, area, cor, borda);
+            case "Peao" -> desenharPeao(g, x + padding, y + padding, area, cor, borda);
         }
     }
 
