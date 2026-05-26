@@ -2,11 +2,13 @@ package jogo;
 
 import tabuleiro.Tabuleiro;
 import tabuleiro.Casa;
+import pecas.Peca;
 import pecas.Rei;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BotMinimax extends Jogador {
+    private static final long serialVersionUID = 1L;
 
     private int profundidade;
 
@@ -116,9 +118,28 @@ public class BotMinimax extends Jogador {
 
     private Tabuleiro copiarTabuleiro(Tabuleiro original) {
         Tabuleiro copia = new Tabuleiro();
+        // Limpa o tabuleiro copiado
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                copia.getCasa(i, j).setPeca(original.getCasa(i, j).getPeca());
+                copia.getCasa(i, j).setPeca(null);
+            }
+        }
+        // Copia as peças do tabuleiro original
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                Casa casaOriginal = original.getCasa(i, j);
+                if (!casaOriginal.estaVazia()) {
+                    try {
+                        // Cria uma nova peça do mesmo tipo
+                        Peca pecaOriginal = casaOriginal.getPeca();
+                        Peca pecaCopia = pecaOriginal.getClass()
+                            .getConstructor(String.class)
+                            .newInstance(pecaOriginal.getCor());
+                        copia.getCasa(i, j).setPeca(pecaCopia);
+                    } catch (Exception e) {
+                        System.err.println("Erro ao copiar peça: " + e.getMessage());
+                    }
+                }
             }
         }
         return copia;

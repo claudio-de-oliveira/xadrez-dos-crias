@@ -4,6 +4,8 @@ import pecas.Peca;
 import java.io.Serializable;
 
 public class Casa implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private int linha;
     private int coluna;
     private Peca peca;

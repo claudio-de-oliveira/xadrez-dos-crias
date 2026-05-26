@@ -5,6 +5,8 @@ import tabuleiro.Casa;
 import java.io.Serializable;
 
 public class Jogo implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private Tabuleiro tabuleiro;
     private Jogador jogador1;
     private Jogador jogador2;

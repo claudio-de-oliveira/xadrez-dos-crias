@@ -4,6 +4,8 @@ import pecas.*;
 import java.io.Serializable;
 
 public class Tabuleiro implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private Casa[][] casas = new Casa[8][8];
 
     public Tabuleiro() {
